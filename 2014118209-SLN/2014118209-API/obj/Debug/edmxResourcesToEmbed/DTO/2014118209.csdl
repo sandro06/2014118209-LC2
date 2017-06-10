@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Transportes_SandroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Buses">
+    <Key>
+      <PropertyRef Name="BusId" />
+    </Key>
+    <Property Name="BusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Placa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_dbo_Empleados_dbo_Buses_BusId" FromRole="Buses" ToRole="Empleados" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK_dbo_Servicios_dbo_Buses_BusId" FromRole="Buses" ToRole="Servicios" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Name="ClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dni" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nombres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK_dbo_Servicios_dbo_Clientes_ClienteId" FromRole="Clientes" ToRole="Servicios" />
+    <NavigationProperty Name="Ventas" Relationship="Self.FK_dbo_Ventas_dbo_Clientes_ClienteId" FromRole="Clientes" ToRole="Ventas" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="EmpleadoId" />
+    </Key>
+    <Property Name="EmpleadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dni" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nombres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BusId" Type="Int32" />
+    <Property Name="TipoTripulacion" Type="Int32" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Buses" Relationship="Self.FK_dbo_Empleados_dbo_Buses_BusId" FromRole="Empleados" ToRole="Buses" />
+    <NavigationProperty Name="Ventas" Relationship="Self.FK_dbo_Ventas_dbo_Empleados_EmpleadoId" FromRole="Empleados" ToRole="Ventas" />
+  </EntityType>
+  <EntityType Name="LugarViajes">
+    <Key>
+      <PropertyRef Name="LugarViajeId" />
+    </Key>
+    <Property Name="LugarViajeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoLugar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK_dbo_Servicios_dbo_LugarViajes_LugarViajeId" FromRole="LugarViajes" ToRole="Servicios" />
+  </EntityType>
+  <EntityType Name="Servicios">
+    <Key>
+      <PropertyRef Name="ServicioId" />
+    </Key>
+    <Property Name="ServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LugarViajeId" Type="Int32" Nullable="false" />
+    <Property Name="BusId" Type="Int32" Nullable="false" />
+    <Property Name="ClienteId" Type="Int32" />
+    <Property Name="TipoViaje" Type="Int32" />
+    <Property Name="Beneficiario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Peso" Type="Double" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Buses" Relationship="Self.FK_dbo_Servicios_dbo_Buses_BusId" FromRole="Servicios" ToRole="Buses" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Servicios_dbo_Clientes_ClienteId" FromRole="Servicios" ToRole="Clientes" />
+    <NavigationProperty Name="LugarViajes" Relationship="Self.FK_dbo_Servicios_dbo_LugarViajes_LugarViajeId" FromRole="Servicios" ToRole="LugarViajes" />
+    <NavigationProperty Name="Ventas" Relationship="Self.FK_dbo_Ventas_dbo_Servicios_VentaId" FromRole="Servicios" ToRole="Ventas" />
+  </EntityType>
+  <EntityType Name="Ventas">
+    <Key>
+      <PropertyRef Name="VentaId" />
+    </Key>
+    <Property Name="VentaId" Type="Int32" Nullable="false" />
+    <Property Name="EmpleadoId" Type="Int32" Nullable="false" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="TipoComprobante" Type="Int32" Nullable="false" />
+    <Property Name="TipoPago" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Ventas_dbo_Clientes_ClienteId" FromRole="Ventas" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_dbo_Ventas_dbo_Empleados_EmpleadoId" FromRole="Ventas" ToRole="Empleados" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK_dbo_Ventas_dbo_Servicios_VentaId" FromRole="Ventas" ToRole="Servicios" />
+  </EntityType>
+  <Association Name="FK_dbo_Empleados_dbo_Buses_BusId">
+    <End Role="Buses" Type="Self.Buses" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buses">
+        <PropertyRef Name="BusId" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="BusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Servicios_dbo_Buses_BusId">
+    <End Role="Buses" Type="Self.Buses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buses">
+        <PropertyRef Name="BusId" />
+      </Principal>
+      <Dependent Role="Servicios">
+        <PropertyRef Name="BusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Servicios_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="Servicios">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ventas_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ventas_dbo_Empleados_EmpleadoId">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="EmpleadoId" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="EmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Servicios_dbo_LugarViajes_LugarViajeId">
+    <End Role="LugarViajes" Type="Self.LugarViajes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LugarViajes">
+        <PropertyRef Name="LugarViajeId" />
+      </Principal>
+      <Dependent Role="Servicios">
+        <PropertyRef Name="LugarViajeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ventas_dbo_Servicios_VentaId">
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+    <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Servicios">
+        <PropertyRef Name="ServicioId" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="VentaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Transportes_SandroEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Buses" EntityType="Self.Buses" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="LugarViajes" EntityType="Self.LugarViajes" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+    <EntitySet Name="Ventas" EntityType="Self.Ventas" />
+    <AssociationSet Name="FK_dbo_Empleados_dbo_Buses_BusId" Association="Self.FK_dbo_Empleados_dbo_Buses_BusId">
+      <End Role="Buses" EntitySet="Buses" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Servicios_dbo_Buses_BusId" Association="Self.FK_dbo_Servicios_dbo_Buses_BusId">
+      <End Role="Buses" EntitySet="Buses" />
+      <End Role="Servicios" EntitySet="Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Servicios_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Servicios_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Servicios" EntitySet="Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ventas_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Ventas_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ventas_dbo_Empleados_EmpleadoId" Association="Self.FK_dbo_Ventas_dbo_Empleados_EmpleadoId">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Servicios_dbo_LugarViajes_LugarViajeId" Association="Self.FK_dbo_Servicios_dbo_LugarViajes_LugarViajeId">
+      <End Role="LugarViajes" EntitySet="LugarViajes" />
+      <End Role="Servicios" EntitySet="Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ventas_dbo_Servicios_VentaId" Association="Self.FK_dbo_Ventas_dbo_Servicios_VentaId">
+      <End Role="Servicios" EntitySet="Servicios" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -8,8 +8,12 @@ namespace _2014118209_CON
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
+            
         }
     }
+    
 }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE431D5B-7FA7-4D58-B8DB-74F666FAD8A0}</ProjectGuid>
+    <ProjectGuid>{DB7FDA6A-9D1C-441A-B2FC-8F9AAEBEC110}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_2014118209_PER</RootNamespace>
@@ -48,32 +48,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="2014118209DbContext.cs" />
-    <Compile Include="EntitiesConfigurations\AdministrativoConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\BusConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\ClienteConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\EmpleadoConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\EncomiendaConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\LugarViajeConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\ServicioConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TipoComprobanteConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TipoLugarConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TipoPagoConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TipoTripulacionConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TipoViajeConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TransporteConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\TripulacionConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\VentaConfiguration.cs" />
-    <Compile Include="Migrations\201705141633055_Prueba 1.cs" />
-    <Compile Include="Migrations\201705141633055_Prueba 1.Designer.cs">
-      <DependentUpon>201705141633055_Prueba 1.cs</DependentUpon>
+    <Compile Include="EntityTypeConfigurations\BusConfigurations.cs" />
+    <Compile Include="EntityTypeConfigurations\ClienteConfigurations.cs" />
+    <Compile Include="EntityTypeConfigurations\EmpleadoConfigurations.cs" />
+    <Compile Include="EntityTypeConfigurations\LugarViajeConfigurations.cs" />
+    <Compile Include="EntityTypeConfigurations\ServicioConfigurations.cs" />
+    <Compile Include="EntityTypeConfigurations\VentaConfigurations.cs" />
+    <Compile Include="Migrations\201706100526499_Prueba 1.cs" />
+    <Compile Include="Migrations\201706100526499_Prueba 1.Designer.cs">
+      <DependentUpon>201706100526499_Prueba 1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705141633055_Prueba 1.resx">
-      <DependentUpon>201705141633055_Prueba 1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Repositories\BusRepository.cs" />
+    <Compile Include="Repositories\ClienteRepository.cs" />
+    <Compile Include="Repositories\EmpleadoRepository.cs" />
+    <Compile Include="Repositories\LugarViajeRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\ServicioRepository.cs" />
+    <Compile Include="Repositories\UnityOfWork.cs" />
+    <Compile Include="Repositories\VentaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -81,9 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\2014118209-ENT\2014118209-ENT.csproj">
-      <Project>{84f95f3f-391b-408d-a33c-6fb70ab31547}</Project>
+      <Project>{2bc8710d-e6ec-4863-b1c4-476fbc6ac6e6}</Project>
       <Name>2014118209-ENT</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706100526499_Prueba 1.resx">
+      <DependentUpon>201706100526499_Prueba 1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

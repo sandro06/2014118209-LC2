@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Transportes_SandroModelStoreContainer" CdmEntityContainer="Transportes_SandroEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buses">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.Buses">
+        <MappingFragment StoreEntitySet="Buses">
+          <ScalarProperty Name="BusId" ColumnName="BusId" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Dni" ColumnName="Dni" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
+          <ScalarProperty Name="Dni" ColumnName="Dni" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="BusId" ColumnName="BusId" />
+          <ScalarProperty Name="TipoTripulacion" ColumnName="TipoTripulacion" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LugarViajes">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.LugarViajes">
+        <MappingFragment StoreEntitySet="LugarViajes">
+          <ScalarProperty Name="LugarViajeId" ColumnName="LugarViajeId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="TipoLugar" ColumnName="TipoLugar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicios">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.Servicios">
+        <MappingFragment StoreEntitySet="Servicios">
+          <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+          <ScalarProperty Name="LugarViajeId" ColumnName="LugarViajeId" />
+          <ScalarProperty Name="BusId" ColumnName="BusId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="TipoViaje" ColumnName="TipoViaje" />
+          <ScalarProperty Name="Beneficiario" ColumnName="Beneficiario" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="Transportes_SandroModel.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

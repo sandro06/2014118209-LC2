@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2014118209_ENT.IRepositories
+{
+    public interface IUnityOfWork : IDisposable
+    {
+        IBusRepository Buses { get; }
+        IClienteRepository Clientes { get; }
+        IEmpleadoRepository Empleados { get; }
+        ILugarViajeRepository LugarViajes { get; }
+        IServicioRepository Servicios { get; }
+        IVentaRepository Ventas { get; }
+        void StateModified(object entity);
+        int SaveChanges();
+
+    }
+}

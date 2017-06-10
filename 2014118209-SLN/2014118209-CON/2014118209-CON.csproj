@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C73C5F9-3D55-414F-A7CF-8CA26766C0B8}</ProjectGuid>
+    <ProjectGuid>{B0170EEE-A710-4D54-A4C2-7603965820BF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>_2014118209_CON</RootNamespace>
     <AssemblyName>2014118209-CON</AssemblyName>
@@ -32,7 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +54,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\2014118209-ENT\2014118209-ENT.csproj">
+      <Project>{2bc8710d-e6ec-4863-b1c4-476fbc6ac6e6}</Project>
+      <Name>2014118209-ENT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\2014118209-PER\2014118209-PER.csproj">
+      <Project>{db7fda6a-9d1c-441a-b2fc-8f9aaebec110}</Project>
+      <Name>2014118209-PER</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

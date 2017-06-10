@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84F95F3F-391B-408D-A33C-6FB70AB31547}</ProjectGuid>
+    <ProjectGuid>{2BC8710D-E6EC-4863-B1C4-476FBC6AC6E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_2014118209_ENT</RootNamespace>
@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,22 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrativo.cs" />
-    <Compile Include="Bus.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Empleado.cs" />
-    <Compile Include="Encomienda.cs" />
-    <Compile Include="LugarViaje.cs" />
-    <Compile Include="Servicio.cs" />
-    <Compile Include="TipoComprobante.cs" />
-    <Compile Include="TipoLugar.cs" />
-    <Compile Include="TipoPago.cs" />
-    <Compile Include="TipoTripulacion.cs" />
-    <Compile Include="TipoViaje.cs" />
-    <Compile Include="Transporte.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Administrativo.cs" />
+    <Compile Include="Entities\Bus.cs" />
+    <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Empleado.cs" />
+    <Compile Include="Entities\Encomienda.cs" />
+    <Compile Include="Entities\LugarViaje.cs" />
+    <Compile Include="Entities\Servicio.cs" />
+    <Compile Include="Entities\TipoComprobante.cs" />
+    <Compile Include="Entities\TipoLugar.cs" />
+    <Compile Include="Entities\TipoPago.cs" />
+    <Compile Include="Entities\TipoTripulacion.cs" />
+    <Compile Include="Entities\TipoViaje.cs" />
+    <Compile Include="Entities\Transporte.cs" />
+    <Compile Include="Entities\Tripulacion.cs" />
+    <Compile Include="Entities\Venta.cs" />
+    <Compile Include="IRepositories\IBusRepository.cs" />
+    <Compile Include="IRepositories\IClienteRepository.cs" />
+    <Compile Include="IRepositories\IEmpleadoRepository.cs" />
+    <Compile Include="IRepositories\ILugarViajeRepository.cs" />
+    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\IServicioRepository.cs" />
+    <Compile Include="IRepositories\IUnityOfWork.cs" />
+    <Compile Include="IRepositories\IVentaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tripulacion.cs" />
-    <Compile Include="Venta.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

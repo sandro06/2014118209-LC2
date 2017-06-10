@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce83e65e24f2438ba8180f70cb9c00d6" Name="Diagram1">
+        <EntityTypeShape EntityType="Transportes_SandroModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Transportes_SandroModel.Buses" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Transportes_SandroModel.Clientes" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Transportes_SandroModel.Empleados" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Transportes_SandroModel.LugarViajes" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Transportes_SandroModel.Servicios" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Transportes_SandroModel.Ventas" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Empleados_dbo_Buses_BusId" ManuallyRouted="false" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Servicios_dbo_Buses_BusId" ManuallyRouted="false" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Servicios_dbo_Clientes_ClienteId" ManuallyRouted="false" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Ventas_dbo_Clientes_ClienteId" ManuallyRouted="false" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Ventas_dbo_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Servicios_dbo_LugarViajes_LugarViajeId" ManuallyRouted="false" />
+        <AssociationConnector Association="Transportes_SandroModel.FK_dbo_Ventas_dbo_Servicios_VentaId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
